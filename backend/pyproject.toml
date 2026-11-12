@@ -1,0 +1,54 @@
+[project]
+name = "trading-bot-backend"
+version = "0.1.0"
+description = "Trading Bot Pessoal — API e motor (paper trading only)"
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+    "fastapi>=0.133.1,<0.134.0",
+    "starlette>=1.3.1,<2",
+    "uvicorn[standard]>=0.32.0,<0.35.0",
+    "pydantic>=2.9.0,<3.0.0",
+    "pydantic-settings>=2.6.0,<3.0.0",
+    "python-dotenv>=1.0.0,<2.0.0",
+    "httpx>=0.27.0,<0.29.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=9.0.3,<10.0.0",
+    "pytest-asyncio>=1.4.1.post1,<2.0.0",
+    "ruff>=0.8.0,<0.10.0",
+    "pyright>=1.1.390,<2.0.0",
+    "pip-audit>=2.10.0,<3.0.0",
+]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["app"]
+
+[tool.pytest.ini_options]
+asyncio_mode = "auto"
+testpaths = ["tests"]
+pythonpath = ["."]
+
+[tool.ruff]
+line-length = 100
+target-version = "py311"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "B", "UP"]
+
+[tool.pyright]
+include = ["app", "tests"]
+pythonVersion = "3.11"
+typeCheckingMode = "basic"
+reportMissingImports = true
+
+# Em caminhos Windows com acentos (ex.: "Área de Trabalho"), instalação
+# editable quebra o .pth (cp1252). Preferir sync não-editável.
+[tool.uv]
+package = true
