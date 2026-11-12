@@ -1,0 +1,23 @@
+# Serviços locais da Fase 1.
+# Supabase Cloud é a opção aprovada para o banco (Fase 2).
+# Este compose sobe apenas a API para desenvolvimento opcional em container.
+
+services:
+  api:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    ports:
+      - "8000:8000"
+    env_file:
+      - .env
+    environment:
+      APP_ENV: development
+      APP_MODE: paper
+      APP_HOST: 0.0.0.0
+      APP_PORT: 8000
+      TRADING_ENABLED: "false"
+      LIVE_TRADING_ENABLED: "false"
+    command: ["uv", "run", "uvicorn", "app.main:app", "--host", "0.0.0.0", "--port", "8000"]
+    profiles:
+      - api

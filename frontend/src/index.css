@@ -1,0 +1,50 @@
+:root {
+  --bg-0: #f3efe6;
+  --bg-1: #e7e0d2;
+  --ink: #1c241c;
+  --muted: #5a6558;
+  --panel: rgba(255, 252, 246, 0.82);
+  --line: rgba(28, 36, 28, 0.12);
+  --accent: #0f6a4d;
+  --warn-bg: #1f1a12;
+  --warn-ink: #f6e7c1;
+  --warn-edge: #d4a017;
+  --ok: #0f6a4d;
+  --bad: #8a2f1f;
+  --shadow: 0 18px 50px rgba(28, 36, 28, 0.08);
+  font-family: 'Sora', sans-serif;
+  color: var(--ink);
+  background: var(--bg-0);
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  margin: 0;
+  min-height: 100%;
+}
+
+body {
+  min-height: 100vh;
+  background:
+    radial-gradient(circle at 12% 18%, rgba(212, 160, 23, 0.18), transparent 42%),
+    radial-gradient(circle at 88% 0%, rgba(15, 106, 77, 0.12), transparent 36%),
+    linear-gradient(160deg, var(--bg-0), var(--bg-1));
+}
+
+button,
+input,
+select {
+  font: inherit;
+}
+
+a {
+  color: inherit;
+}

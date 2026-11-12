@@ -1,0 +1,2 @@
+-- Seed data será definido na Fase 2.
+-- Não executar como schema definitivo nesta fase.
